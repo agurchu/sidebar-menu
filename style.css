@@ -1,6 +1,27 @@
+/* google font import - poppins*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@200;400&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+:root {
+  --color-main: #389c9c;
+  --color-primary: #349cc0;
+  --color-secondary: #34c0bc;
+  --color-accent: #d8bcbc;
+  --color-body: #d4dcdc;
+  --color-heading: #fff;
+  --color-toggle: #ddd;
+
+  /* _________________Transition________________*/
+  --trans-02: all 0.2s ease;
+  --trans-03: all 0.3s ease;
+  --trans-04: all 0.4s ease;
+  --trans-05: all 0.5s ease;
+}
+
 * {
+  font-family: "poppins", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
