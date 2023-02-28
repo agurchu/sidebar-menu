@@ -6,9 +6,10 @@
   --color-primary: #349cc0;
   --color-secondary: #34c0bc;
   --color-accent: #d8bcbc;
-  --color-body: #d4dcdc;
+  --color-body: #c2dfdf;
   --color-heading: #fff;
   --color-toggle: #ddd;
+  --color-text: #666;
 
   /* _________________Transition________________*/
   --trans-02: all 0.2s ease;
@@ -27,4 +28,118 @@
 html {
   /*1rem = 10px*/
   font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  background: var(--color-body);
+}
+
+/*=======sidebar section========*/
+
+.sidebar {
+  background: var(--color-heading);
+  height: 100%;
+  left: 0;
+  padding: 10px 14px;
+  position: fixed;
+  top: 0;
+  width: 250px;
+}
+
+/*=======Resuable CSS section========*/
+
+.sidebar .text {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.sidebar .image {
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li {
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li .icon {
+  font-size: 2rem;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar li .icon,
+.sidebar li .text {
+  color: var(--color-text);
+}
+
+.sidebar header {
+  position: relative;
+}
+
+.sidebar .image-text img {
+  width: 40px;
+}
+
+.sidebar header .image-text {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .image-text .header-text {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.header-text .name {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.header-text .profession {
+  margin-top: -2px;
+}
+
+.sidebar header .toggle {
+  align-items: center;
+  background: var(--color-primary);
+  border-radius: 50%;
+  color: var(--color-heading);
+  cursor: pointer;
+  display: flex;
+  font-size: 2.2rem;
+  height: 25px;
+  justify-content: center;
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+}
+
+.sidebar .search-box {
+  background: var(--color-body);
+}
+
+.search-box input {
+  width: 100%;
+  height: 100%;
+  background: var(--color-body);
+  outline: none;
+  border: none;
+  border-radius: 6px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
