@@ -4,11 +4,11 @@
 :root {
   --color-main: #389c9c;
   --color-primary: #349cc0;
-  --color-secondary: #34c0bc;
+  --color-secondary: #c4e6e6;
   --color-accent: #d8bcbc;
-  --color-body: #c2dfdf;
+  --color-body: #d4ffff;
   --color-heading: #fff;
-  --color-toggle: #ddd;
+  --color-toggle: #bbbbbb;
   --color-text: #666;
 
   /* _________________Transition________________*/
@@ -33,8 +33,17 @@ html {
 body {
   height: 100vh;
   background: var(--color-body);
+  transition: var(--trans-05);
 }
 
+body.dark {
+  --color-primary: #3a3b3c;
+  --color-body: #18191a;
+  --color-heading: #242526;
+  --color-secondary: #3a3b3c;
+  --color-toggle: #fff;
+  --color-text: #ccc;
+}
 /*=======sidebar section========*/
 
 .sidebar {
@@ -45,6 +54,12 @@ body {
   position: fixed;
   top: 0;
   width: 250px;
+  transition: var(--trans-05);
+  z-index: 100;
+}
+
+.sidebar.close {
+  width: 88px;
 }
 
 /*=======Resuable CSS section========*/
@@ -52,12 +67,19 @@ body {
 .sidebar .text {
   font-size: 1.6rem;
   font-weight: 500;
+  opacity: 1;
+  transition: var(--trans-03);
+  white-space: nowrap;
 }
 
+.sidebar.close .text {
+  opacity: 0;
+}
 .sidebar .image {
   min-width: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .sidebar li {
@@ -75,7 +97,7 @@ body {
   justify-content: center;
 }
 .sidebar li .icon,
-.sidebar li .text {
+.sidebar .text {
   color: var(--color-text);
   transition: var(--trans-02);
 }
@@ -121,22 +143,39 @@ body {
   position: absolute;
   right: -25px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(180deg);
   width: 25px;
 }
 
+body.dark .toggle {
+  color: var(--color-toggle);
+}
+
+.sidebar.close .toggle {
+  transform: translateY(-50%);
+}
+
+.sidebar .menu {
+  margin-top: 35px;
+}
+
 .sidebar .search-box {
-  background: var(--color-body);
+  background: var(--color-secondary);
   border-radius: 6px;
+  transition: var(--trans-05);
 }
 
 .search-box input {
   width: 100%;
   height: 100%;
-  background: var(--color-body);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-secondary);
   outline: none;
   border: none;
   border-radius: 6px;
+  transition: var(--trans-05);
 }
 
 .sidebar li a {
@@ -158,15 +197,23 @@ body {
   color: var(--color-heading);
 }
 
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+  color: var(--color-text);
+}
+
 .sidebar .menu-bar {
-  height: calc(100% -50px);
+  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .menu-bar .mode {
-  background: var(--color-body);
+  background: var(--color-secondary);
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .menu-bar .mode .moon-sun {
@@ -178,12 +225,77 @@ body {
 
 .menu-bar .mode i {
   position: absolute;
+  transition: var(--trans-03);
 }
 
 .menu-bar .mode i.sun {
   opacity: 0;
 }
 
+body.dark .menu-bar .mode i.sun {
+  opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon {
+  opacity: 0;
+}
+
 .menu-bar .mode .toggle-switch {
+  position: absolute;
+  right: 0;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
   height: 100%;
+  justify-content: center;
+  min-width: 60px;
+  background: var(--color-secondary);
+  transition: var(--trans-05);
+}
+
+.toggle-switch .switch {
+  background: var(--color-toggle);
+  border-radius: 25px;
+  height: 22px;
+  position: relative;
+  width: 44px;
+}
+
+.switch::before {
+  background: var(--color-heading);
+  border-radius: 50%;
+  content: "";
+
+  height: 15px;
+  left: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--trans-03);
+  width: 15px;
+}
+
+body.dark .switch::before {
+  left: 24px;
+}
+
+.home {
+  height: 100%;
+  position: relative;
+  left: 250px;
+  width: calc(100% - 250px);
+  transition: var(--trans-05);
+  background: var(--color-body);
+}
+
+.home .text {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 8px 40px;
+}
+
+.sidebar.close ~ .home {
+  left: 88px;
+  width: calc(100% - 88px);
 }
